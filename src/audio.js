@@ -85,53 +85,12 @@ const AudioManager = {
     this.playTone(200, 0.4, "triangle", 0.15, 0.3);
   },
 
-  // ─── Subtle Space Ambient Drone ─────────────────────────
   startAmbient() {
-    if (!this.enabled || !this.ctx || this.ambientOscs) return;
-
-    // Low warm drone — two detuned sine waves for subtle movement
-    const gain1 = this.ctx.createGain();
-    gain1.gain.setValueAtTime(0.025, this.ctx.currentTime);
-    gain1.connect(this.ctx.destination);
-
-    const osc1 = this.ctx.createOscillator();
-    osc1.type = "sine";
-    osc1.frequency.setValueAtTime(75, this.ctx.currentTime);
-    osc1.connect(gain1);
-    osc1.start();
-
-    const osc2 = this.ctx.createOscillator();
-    osc2.type = "sine";
-    osc2.frequency.setValueAtTime(113, this.ctx.currentTime);
-    const gain2 = this.ctx.createGain();
-    gain2.gain.setValueAtTime(0.018, this.ctx.currentTime);
-    gain2.connect(this.ctx.destination);
-    osc2.connect(gain2);
-    osc2.start();
-
-    // Very quiet high shimmer for spacey feel
-    const osc3 = this.ctx.createOscillator();
-    osc3.type = "sine";
-    osc3.frequency.setValueAtTime(440, this.ctx.currentTime);
-    const gain3 = this.ctx.createGain();
-    gain3.gain.setValueAtTime(0.006, this.ctx.currentTime);
-    gain3.connect(this.ctx.destination);
-    osc3.connect(gain3);
-    osc3.start();
-
-    this.ambientOscs = { osc1, osc2, osc3, gain1, gain2, gain3 };
+    // No ambient sound — reserved for future MP3 background music
   },
 
   stopAmbient() {
-    if (!this.ambientOscs) return;
-    const { osc1, osc2, osc3, gain1, gain2, gain3 } = this.ambientOscs;
-    try { osc1.stop(); } catch {}
-    try { osc2.stop(); } catch {}
-    try { osc3.stop(); } catch {}
-    try { gain1.disconnect(); } catch {}
-    try { gain2.disconnect(); } catch {}
-    try { gain3.disconnect(); } catch {}
-    this.ambientOscs = null;
+    // No-op
   },
 
   toggle() {
