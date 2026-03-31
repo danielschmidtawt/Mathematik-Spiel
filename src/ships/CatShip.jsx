@@ -14,36 +14,53 @@ const CatShip = ({ x, wiggle, style }) => (
     }}
   >
     <svg viewBox="0 0 56 64" width="56" height="64">
+      {/* Engine flame */}
       <ellipse cx="28" cy="62" rx="8" ry="5" fill="#f97316" opacity="0.9">
         <animate attributeName="ry" values="5;8;5" dur="0.3s" repeatCount="indefinite" />
       </ellipse>
       <ellipse cx="28" cy="61" rx="5" ry="3" fill="#facc15" opacity="0.9">
         <animate attributeName="ry" values="3;5;3" dur="0.25s" repeatCount="indefinite" />
       </ellipse>
+      {/* Body – round & warm */}
       <ellipse cx="28" cy="40" rx="18" ry="22" fill="#fde8cd" />
       <ellipse cx="28" cy="40" rx="18" ry="22" fill="url(#catGrad)" />
-      <ellipse cx="28" cy="34" rx="10" ry="12" fill="#1e1b4b" stroke="#f59e0b" strokeWidth="1.5" />
-      <ellipse cx="28" cy="30" rx="6" ry="6" fill="#fff7ed" />
-      <ellipse cx="24.5" cy="28.5" rx="1.8" ry="1.2" fill="#1e1b4b" />
-      <ellipse cx="31.5" cy="28.5" rx="1.8" ry="1.2" fill="#1e1b4b" />
-      <polygon points="28,31 26.8,32.5 29.2,32.5" fill="#f9a8d4" />
-      <path d="M25.5 33.5 Q27 32.5 28 33.5 Q29 32.5 30.5 33.5" stroke="#1e1b4b" strokeWidth="0.8" fill="none" />
-      <line x1="17" y1="30" x2="23" y2="31" stroke="#1e1b4b" strokeWidth="0.5" opacity="0.6" />
-      <line x1="17" y1="32" x2="23" y2="32" stroke="#1e1b4b" strokeWidth="0.5" opacity="0.6" />
-      <line x1="17" y1="34" x2="23" y2="33" stroke="#1e1b4b" strokeWidth="0.5" opacity="0.6" />
-      <line x1="39" y1="30" x2="33" y2="31" stroke="#1e1b4b" strokeWidth="0.5" opacity="0.6" />
-      <line x1="39" y1="32" x2="33" y2="32" stroke="#1e1b4b" strokeWidth="0.5" opacity="0.6" />
-      <line x1="39" y1="34" x2="33" y2="33" stroke="#1e1b4b" strokeWidth="0.5" opacity="0.6" />
-      <polygon points="18,22 14,4 26,18" fill="#fde8cd" stroke="#e8c9a0" strokeWidth="1" />
-      <polygon points="19,20 16,8 24,18" fill="#f9a8d4" opacity="0.5" />
-      <polygon points="38,22 42,4 30,18" fill="#fde8cd" stroke="#e8c9a0" strokeWidth="1" />
-      <polygon points="37,20 40,8 32,18" fill="#f9a8d4" opacity="0.5" />
-      <path d="M10 42 Q2 38 6 30 L14 36Z" fill="#fbbf24" opacity="0.7" />
-      <path d="M46 42 Q54 38 50 30 L42 36Z" fill="#fbbf24" opacity="0.7" />
+      {/* Belly highlight */}
+      <ellipse cx="28" cy="46" rx="10" ry="10" fill="#fff7ed" opacity="0.3" />
+      {/* Face window – bigger */}
+      <ellipse cx="28" cy="33" rx="12" ry="13" fill="#1e1b4b" stroke="#fbbf24" strokeWidth="1.5" />
+      {/* Face – round & cute */}
+      <ellipse cx="28" cy="30" rx="8" ry="7.5" fill="#fff7ed" />
+      {/* Big cat eyes with vertical pupils */}
+      <ellipse cx="24" cy="28" rx="2.5" ry="2.8" fill="#65a30d" />
+      <ellipse cx="32" cy="28" rx="2.5" ry="2.8" fill="#65a30d" />
+      <ellipse cx="24" cy="28" rx="1" ry="2.2" fill="#1e1b4b" />
+      <ellipse cx="32" cy="28" rx="1" ry="2.2" fill="#1e1b4b" />
+      <circle cx="24.8" cy="27" r="0.8" fill="#fff" />
+      <circle cx="32.8" cy="27" r="0.8" fill="#fff" />
+      {/* Rosy cheeks */}
+      <ellipse cx="21" cy="31.5" rx="2" ry="1.2" fill="#fca5a5" opacity="0.4" />
+      <ellipse cx="35" cy="31.5" rx="2" ry="1.2" fill="#fca5a5" opacity="0.4" />
+      {/* Small triangle nose */}
+      <polygon points="28,31 26.8,32.2 29.2,32.2" fill="#f9a8d4" />
+      {/* Happy cat mouth – "w" shape */}
+      <path d="M25.5 33.5 Q27 32.5 28 33.5 Q29 32.5 30.5 33.5" stroke="#92400e" strokeWidth="0.7" fill="none" strokeLinecap="round" />
+      {/* Cute whiskers */}
+      <line x1="17" y1="30.5" x2="22" y2="31.5" stroke="#d4a574" strokeWidth="0.5" opacity="0.5" strokeLinecap="round" />
+      <line x1="17" y1="33" x2="22" y2="32.5" stroke="#d4a574" strokeWidth="0.5" opacity="0.5" strokeLinecap="round" />
+      <line x1="39" y1="30.5" x2="34" y2="31.5" stroke="#d4a574" strokeWidth="0.5" opacity="0.5" strokeLinecap="round" />
+      <line x1="39" y1="33" x2="34" y2="32.5" stroke="#d4a574" strokeWidth="0.5" opacity="0.5" strokeLinecap="round" />
+      {/* Pointy cat ears – rounder tips */}
+      <path d="M18,22 Q14,6 13,4 Q16,10 26,18Z" fill="#fde8cd" stroke="#e8c9a0" strokeWidth="1" />
+      <path d="M19,20 Q16,10 15,7 Q17,12 24,18Z" fill="#f9a8d4" opacity="0.4" />
+      <path d="M38,22 Q42,6 43,4 Q40,10 30,18Z" fill="#fde8cd" stroke="#e8c9a0" strokeWidth="1" />
+      <path d="M37,20 Q40,10 41,7 Q39,12 32,18Z" fill="#f9a8d4" opacity="0.4" />
+      {/* Wings – rounded */}
+      <path d="M10 42 Q3 38 6 30 Q8 28 14 36Z" fill="#fbbf24" opacity="0.5" />
+      <path d="M46 42 Q53 38 50 30 Q48 28 42 36Z" fill="#fbbf24" opacity="0.5" />
       <defs>
         <linearGradient id="catGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.1" />
+          <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.25" />
+          <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.08" />
         </linearGradient>
       </defs>
     </svg>
