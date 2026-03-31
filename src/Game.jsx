@@ -343,16 +343,27 @@ export default function Game() {
           </div>
         </div>
 
-        {/* Round progress dots */}
-        <div style={{ position: "absolute", top: 48, left: 0, right: 0, display: "flex", justifyContent: "center", gap: 6, zIndex: 5 }}>
+        {/* Segmented progress bar */}
+        <div style={{
+          position: "absolute", top: 46, left: "50%", transform: "translateX(-50%)",
+          width: 220, height: 8, borderRadius: 4,
+          background: "rgba(0,0,0,0.4)",
+          border: "1px solid rgba(251,191,36,0.12)",
+          display: "flex", overflow: "hidden", zIndex: 5,
+        }}>
           {Array.from({ length: 10 }, (_, i) => (
             <div key={i} style={{
-              width: 8, height: 8, borderRadius: "50%",
+              flex: 1,
               background: i < results.length
-                ? results[i] ? "#22c55e" : "#ef4444"
-                : i === round - 1 ? "#a78bfa" : "rgba(255,255,255,0.15)",
+                ? results[i]
+                  ? "linear-gradient(180deg, #22c55e, #16a34a)"
+                  : "linear-gradient(180deg, #ef4444, #dc2626)"
+                : i === round - 1
+                  ? "rgba(251,191,36,0.4)"
+                  : "transparent",
+              borderRight: i < 9 ? "1px solid rgba(0,0,0,0.3)" : "none",
               transition: "background 0.3s",
-              boxShadow: i === round - 1 ? "0 0 8px rgba(168,130,255,0.6)" : "none",
+              animation: i === round - 1 ? "glowPulse 1.5s ease-in-out infinite" : "none",
             }} />
           ))}
         </div>

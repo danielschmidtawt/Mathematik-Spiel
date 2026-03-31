@@ -75,25 +75,44 @@ export default function UpgradeScene({ character, tier, onContinue }) {
         }}>
           {/* Title */}
           <div style={{
-            fontSize: "0.7rem", color: "#a78bfa", letterSpacing: 4,
-            marginBottom: 8, fontWeight: 600,
+            fontSize: "0.65rem", letterSpacing: 4,
+            marginBottom: 6, fontWeight: 700,
+            background: "linear-gradient(135deg, #22d3ee, #a78bfa)",
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             animation: "slideUp 0.5s ease",
           }}>
             TIER {tier}
           </div>
 
+          {/* Gold line above */}
+          <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, transparent, #fbbf24, transparent)", marginBottom: 8 }} />
+
           <h2 style={{
-            fontSize: "1.6rem", fontWeight: 900, color: "#fbbf24",
-            marginBottom: 30,
+            fontSize: "1.8rem", fontWeight: 900,
+            marginBottom: 8,
             animation: phase === "intro" ? "popIn 0.8s ease" : "none",
-            textShadow: "0 0 30px rgba(251,191,36,0.5)",
-            letterSpacing: 3,
+            letterSpacing: 4,
+            background: "linear-gradient(180deg, #fbbf24 0%, #f59e0b 100%)",
+            WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+            filter: "drop-shadow(0 0 20px rgba(251,191,36,0.4))",
           }}>
             UPGRADE!
           </h2>
 
-          {/* Ship area */}
-          <div style={{ position: "relative", width: 100, height: 100, marginBottom: 24 }}>
+          {/* Gold line below */}
+          <div style={{ width: 60, height: 1, background: "linear-gradient(90deg, transparent, #fbbf24, transparent)", marginBottom: 20 }} />
+
+          {/* Ship area with hex frame */}
+          <div style={{ position: "relative", width: 120, height: 120, marginBottom: 20 }}>
+            {/* Hexagonal frame */}
+            <svg style={{ position: "absolute", inset: 0, pointerEvents: "none" }} viewBox="0 0 120 120" width="120" height="120">
+              <polygon points="60,5 110,30 110,90 60,115 10,90 10,30"
+                fill="none" stroke="#fbbf24" strokeWidth="1.5" opacity="0.4">
+                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite" />
+              </polygon>
+              <polygon points="60,12 104,34 104,86 60,108 16,86 16,34"
+                fill="none" stroke="rgba(251,191,36,0.15)" strokeWidth="0.8" />
+            </svg>
             {/* Light burst */}
             {(phase === "burst" || phase === "reveal") && (
               <div style={{
